@@ -21,7 +21,7 @@
             eduvibeJs.counterUp();
             eduvibeJs.productHoverTilt();
             eduvibeJs.masonryActivation();
-            eduvibeJs.lightboxActivation();
+            // eduvibeJs.lightboxActivation();
             eduvibeJs.boxHover();
             eduvibeJs.boxHoverSlider();
             eduvibeJs.pricingPlan();
@@ -85,8 +85,8 @@
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 4000,
-                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left-line"></i></button>',
-                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right-line-right"></i></button>'
+                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left"></i></button>',
+                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right"></i></button>'
             });
 
             $('.eduvibe-home-five-testimonial-activation').slick({
@@ -232,8 +232,8 @@
                 slidesToShow: 5,
                 slidesToScroll: 1,
                 centerMode: false,
-                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left-line"></i></button>',
-                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right-line-right"></i></button>',
+                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left"></i></button>',
+                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right"></i></button>',
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
@@ -267,8 +267,8 @@
                 slidesToShow: 4,
                 slidesToScroll: 3,
                 centerMode: false,
-                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left-line"></i></button>',
-                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right-line-right"></i></button>',
+                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left"></i></button>',
+                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right"></i></button>',
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
@@ -304,8 +304,8 @@
                 slidesToShow: 3,
                 slidesToScroll: 2,
                 centerMode: false,
-                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left-line"></i></button>',
-                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right-line-right"></i></button>',
+                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left"></i></button>',
+                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right"></i></button>',
                 responsive: [{
                         breakpoint: 768,
                         settings: {
@@ -334,8 +334,8 @@
                 slidesToShow: 4,
                 slidesToScroll: 2,
                 centerMode: false,
-                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left-line"></i></button>',
-                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right-line-right"></i></button>',
+                prevArrow: '<button class="slide-arrow prev-arrow"><i class="icon-arrow-left"></i></button>',
+                nextArrow: '<button class="slide-arrow next-arrow"><i class="icon-arrow-right"></i></button>',
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
@@ -498,13 +498,13 @@
             })
         },
 
-        lightboxActivation: function() {
-            lightGallery(document.getElementById('animated-thumbnials'), {
-                thumbnail: true,
-                animateThumb: false,
-                showThumbByDefault: false
-            });
-        },
+        // lightboxActivation: function() {
+        //     lightGallery(document.getElementById('animated-thumbnials'), {
+        //         thumbnail: true,
+        //         animateThumb: false,
+        //         showThumbByDefault: false
+        //     });
+        // },
 
         boxHover: function() {
             jQuery('.edu-instructor-3-visible, .eduvibe-hover-item-visible').on('mouseenter', function() {
@@ -662,9 +662,9 @@
             $('.close-trigger').on('click', function() {
                 $('.edu-search-popup').removeClass('open')
             })
-            $('.edu-search-popup').on('click', function() {
-                $('.edu-search-popup').removeClass('open');
-            })
+            // $('.edu-search-popup button').on('click', function() {
+            //     $('.edu-search-popup').removeClass('open');
+            // })
             $('.edu-search-popup .eduvibe-search-popup-field').on('click', function(e) {
                 e.stopPropagation();
             })
@@ -722,3 +722,87 @@
     eduvibeJs.i();
 
 })(window, document, jQuery)
+
+
+
+$(".event").each(function () {
+    var id_selector = $(this).attr('id')
+    lightbox(`#${id_selector} .lightbox`, {
+        captions: true,
+
+        captionsSelector: 'self',
+
+        captionAttribute: 'title',
+
+        nav: 'auto',
+
+        navText: [
+
+            '&lsaquo;',
+
+            '&rsaquo;'
+
+        ],
+
+        close: true,
+
+        closeText: '&times;',
+
+        counter: true,
+
+        keyboard: true,
+
+        zoom: true,
+
+        zoomText: '&plus;',
+
+        docClose: false,
+
+        swipeClose: true,
+
+        scroll: false
+
+    });
+})
+
+
+$(document).ready(function () {
+    $(".event").each(function () {
+        var id_selector = $(this).attr('id')
+        $(`#${id_selector}`).slick({
+            dots: true,
+            infinite: true,
+            speed: 800,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 425,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+
+            ]
+        });
+    })
+});
